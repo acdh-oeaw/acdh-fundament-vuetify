@@ -1,9 +1,10 @@
 {
   "name": "acdh-fundament-vuetify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./index.js",
   "module": "./index.js",
   "unpkg": "./index.js",
+  "author": "Robin Kaggl, Christoph Hoffmann",
   "dependencies": {
     "@babel/core": "^7.7.2",
     "babel-loader": "^8.0.6",
@@ -11,6 +12,15 @@
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.4",
     "vue-style-loader": "^4.1.2",
-    "vuetify": "^1.5.20"
-  }
+    "vuetify": "^1.5.20",
+    "webpack": "^4.41.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acdh-oeaw/acdh-fundament-vuetify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acdh-oeaw/acdh-fundament-vuetify/issues"
+  },
+  "license": "MIT"
 }
