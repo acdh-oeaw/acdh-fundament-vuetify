@@ -16,6 +16,10 @@
     name: 'FundamentSectionDiv',
   };
 </script>
+
+<style>
+  @import '../css/fundament.css';
+</style>
 <style scoped>
   .sec {
     border-bottom: 1px solid #dee2e6 !important;

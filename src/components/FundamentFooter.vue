@@ -53,6 +53,7 @@
   };
 </script>
 <style media="screen">
+  @import '../css/fundament.css';
 /* ARCHE COPY STYLES, TO BE IMPLEMENTED */
 .main-footer {
   background-color: #FFFFFF;

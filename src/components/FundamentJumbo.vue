@@ -22,3 +22,7 @@
     name: 'FundamentJumbo',
   };
 </script>
+
+<style>
+  @import '../css/fundament.css';
+</style>

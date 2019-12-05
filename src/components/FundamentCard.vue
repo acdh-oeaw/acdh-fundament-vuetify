@@ -22,7 +22,20 @@
 </template>
 
 <script>
+  // import { VCard, VCardText, VCardMedia, vCardActions, VCardTitle, VFlex, transition } from 'vuetify/lib'
+
   export default {
+    /*
+    components: {
+      VCard,
+      VCardText,
+      VCardMedia,
+      VCardActions,
+      VCardTitle,
+      VFlex,
+      transition
+    },
+    */
     props: [
       'src',
       'caption',
@@ -32,3 +45,6 @@
     name: 'FundamentCard',
   };
 </script>
+<style>
+  @import '../css/fundament.css';
+</style>
