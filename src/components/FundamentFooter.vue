@@ -44,7 +44,15 @@
 </template>
 
 <script>
+  import { VContainer, VLayout, VFlex, VSpacer } from 'vuetify/lib';
+
   export default {
+    components: {
+      VContainer,
+      VLayout,
+      VFlex,
+      VSpacer,
+    },
     data() {
       return {
       };

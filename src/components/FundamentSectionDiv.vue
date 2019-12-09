@@ -7,8 +7,13 @@
 </template>
 
 <script>
+  import { VFlex, VIcon} from 'vuetify/lib';
 
   export default {
+    components: {
+      VFlex,
+      VIcon,
+    },
     props: [
       'icon',
       'caption',

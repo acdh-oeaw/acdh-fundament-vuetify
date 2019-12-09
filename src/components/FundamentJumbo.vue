@@ -8,8 +8,13 @@
 </template>
 
 <script>
+  import { VParallax, VLayout } from 'vuetify/lib';
 
   export default {
+    components: {
+      VParallax,
+      VLayout,
+    },
     data() {
       return {
       };
