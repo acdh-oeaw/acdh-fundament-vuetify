@@ -14,7 +14,7 @@
         class="teak lighten-3"
         :to="link"
         >
-      {{ button ||'Start' }}</v-btn>
+      {{ button || 'Start' }}</v-btn>
     </v-card-actions>
   </v-card>
 </template>

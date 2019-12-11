@@ -36,6 +36,18 @@ module.exports = {
         test: /\.styl$/,
         loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/',
       },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              // disable: true,
+            },
+          },
+        ],
+      }
     ]
   }
 }

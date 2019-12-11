@@ -3,11 +3,11 @@
     <v-container grid-list-md>
       <v-layout row wrap justify-space-between>
         <v-flex xs12 class="footer-sep mt-3">
-          <v-icon >message</v-icon> CONTACT
+          <v-icon>message</v-icon> CONTACT
         </v-flex>
-        <v-flex xs12 sm2 md1 class="mr-4">
+        <v-flex v-if="logo" xs12 sm2 md1 class="mr-4">
           <a href="https://www.oeaw.ac.at/acdh/acdh-home/" target="_blank" rel="noopener" aria-label="ACDH">
-            <img src="/static/acdh_logo.png" alt="ACDH" title="Austrian Center for Digital Humanities">
+            <img :src="logo" alt="ACDH" title="Austrian Center for Digital Humanities">
           </a>
         </v-flex>
         <v-flex xs12 sm3>
@@ -53,10 +53,9 @@
       VFlex,
       VSpacer,
     },
-    data() {
-      return {
-      };
-    },
+    props: [
+      'logo',
+    ],
     name: 'FundamentFooter',
   };
 </script>

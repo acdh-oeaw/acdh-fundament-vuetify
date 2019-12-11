@@ -1,7 +1,8 @@
 <template>
   <v-flex xs12>
     <div class="text-xs-center pb-2 mb-1 sec">
-      <v-icon>{{icon}}</v-icon>{{caption}}
+      <v-icon>{{icon}}</v-icon>
+      <slot></slot>
     </div>
   </v-flex>
 </template>
@@ -16,7 +17,6 @@
     },
     props: [
       'icon',
-      'caption',
     ],
     name: 'FundamentSectionDiv',
   };
