@@ -10,8 +10,6 @@
         >
         <v-container
            fill-height
-           @mouseover.stop="setNavDrawerMaxi()"
-           @mouseleave.stop="setNavDrawerMini()"
         >
           <v-layout column justify-space-between>
             <v-list>
@@ -22,7 +20,7 @@
                 <v-btn icon @click.stop="toggleNavDrawerClipped()">
                   <v-icon v-html="drawerclipped ? 'first_page' : 'last_page'"></v-icon>
                 </v-btn>
-                <v-btn icon @click.stop="toggleRightDrawer()">
+                <v-btn v-if="!disableRightDrawer" icon @click.stop="toggleRightDrawer()">
                   <v-icon v-html="'menu'"></v-icon>
                 </v-btn>
               </v-list-tile>
@@ -91,18 +89,19 @@
             <v-spacer></v-spacer>
           </v-layout>
         </v-container>
-        <v-btn icon @click.stop="toggleRightDrawer()">
+        <v-btn v-if="!disableRightDrawer" icon @click.stop="toggleRightDrawer()">
           <v-icon>menu</v-icon>
         </v-btn>
       </v-toolbar>
     </transition>
     <v-navigation-drawer
+      v-if="!disableRightDrawer"
       :right="true"
       v-model="rightDrawer"
       app
       >
-      <router-view name="rightdrawertop"></router-view>
-      <router-view name="rightdrawerbottom"></router-view>
+      <router-view v-if="!disableRouter" name="rightdrawertop"></router-view>
+      <router-view v-if="!disableRouter" name="rightdrawerbottom"></router-view>
     </v-navigation-drawer>
   </div>
 </template>
@@ -128,6 +127,8 @@
         type: Object,
         default: () => ({}),
       },
+      disableRightDrawer: Boolean,
+      disableRouter: Boolean,
     },
     methods: {
       toggleDrawer() {
@@ -139,6 +140,33 @@
       toggleRightDrawer() {
         this.rightDrawer = !this.rightDrawer;
       },
+      checkLocalStorage(str) {
+        if (localStorage.getItem('FundamentNav') && JSON.parse(localStorage.getItem('FundamentNav'))[str]) {
+          this[str] = JSON.parse(localStorage.getItem('FundamentNav'))[str];
+        }
+      },
+      setLocalStore(key, val) {
+        const locStore = JSON.parse(localStorage.getItem('FundamentNav'));
+        locStore[key] = val;
+        localStorage.setItem('FundamentNav', JSON.stringify(locStore));
+      },
+    },
+    watch: {
+      drawer(to) {
+        this.setLocalStore('drawer', to);
+      },
+      drawerclipped(to) {
+        this.setLocalStore('drawerclipped', to);
+      },
+      rightDrawer(to) {
+        this.setLocalStore('rightDrawer', to);
+      },
+    },
+    mounted() {
+      if (!localStorage.FundamentNav) localStorage.setItem('FundamentNav', JSON.stringify({}));
+
+      const vals = ['drawer', 'drawerclipped', 'rightDrawer'];
+      for (let i = 0; i < vals.length; i-=-1) this.checkLocalStorage(vals[i]);
     },
   };
 </script>
