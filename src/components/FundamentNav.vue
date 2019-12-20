@@ -96,23 +96,17 @@
     </transition>
     <v-navigation-drawer
       v-if="!disableRightDrawer"
-      :right="true"
+      right
       v-model="rightDrawer"
       app
       >
-      <router-view v-if="!disableRouter" name="rightdrawertop"></router-view>
-      <router-view v-if="!disableRouter" name="rightdrawerbottom"></router-view>
+      <router-view name="rightdrawertop"></router-view>
+      <router-view name="rightdrawerbottom"></router-view>
     </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-  import { mapActions, mapMutations } from 'vuex';
-  import axios from 'axios';
-
-  /* eslint no-console: ["error", { allow: ["log"] }] */
-  /* eslint no-return-assign: "off" */
-
   export default {
     data() {
       return {
@@ -128,7 +122,6 @@
         default: () => ({}),
       },
       disableRightDrawer: Boolean,
-      disableRouter: Boolean,
     },
     methods: {
       toggleDrawer() {
