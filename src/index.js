@@ -4,7 +4,6 @@ import FundamentCard from './components/FundamentCard.vue';
 import FundamentSectionDiv from './components/FundamentSectionDiv.vue';
 import FundamentNav from './components/FundamentNav.vue';
 
-
 export default {
   install (Vue, options) {
     Vue.component('FundamentFooter', FundamentFooter);
